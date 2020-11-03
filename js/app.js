@@ -36,16 +36,14 @@ const nav = document.getElementById('navbar__list'); //
 //Navbar funcction
 const navbar = function(){
  // identify the name , the section link varibles
-  let SeID, SeName ;
 
 
     sections.forEach(function(section){
 
 // store each link using innerHTML to update the nav elemnt and using Template to write them
-         SeID = section.id;
-        SeName  = section.dataset.nav;
 
-        nav.innerHTML += `<li> <a class="menu__link" href="#${SeID} "> ${SeName} </a> </li>`;
+
+        nav.innerHTML += `<li> <a class="menu__link" href="#${section.id} "> ${section.dataset.nav} </a> </li>`;
     });
 };
 
@@ -65,7 +63,7 @@ navbar();
 // Scroll to anchor ID using scrollTO event
 
 const options = {
-  threshold: 0.75 // The prcentge of the section is being viewd in page
+  threshold: 0.7 // The prcentge of the section is being viewd in page
 }
 
 const observer = new IntersectionObserver(function
@@ -73,10 +71,13 @@ const observer = new IntersectionObserver(function
   enrtie.forEach(function(entre) {
     //to see if the section isIntersecting so they dont show up all it the begining of viewing the page
     if(entre.isIntersecting){
-      //Add the Observed class to the Observed section :
-      entre.target.classList.toggle('Observed');
+      //Add the your-active-class class to the Observed section :
+      entre.target.classList.add('your-active-class');
+    }else{
+      //remove the active class when isIntersecting become false :
 
-       }
+        entre.target.classList.remove('your-active-class');
+    }
 
   });
 }, options);
@@ -95,5 +96,12 @@ const observer = new IntersectionObserver(function
 
 // Scroll to section on link click
 //
+function smothScroll() {
+    nav.addEventListener('click',function (Event) {
+        Event.preventDefault();
+        document.querySelector(Event.path[0].hash).scrollIntoView({behavior: "smooth"});
+    });
+  }
+smothScroll();
 // window.addEventListener('scroll', function() {
 // 	let ele = document.querySelector('#section4');
