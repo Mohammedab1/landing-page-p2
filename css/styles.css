@@ -31,6 +31,9 @@ h1 {
         font-size: 7em;
         margin: 2em 4rem 1em;
     }
+    #sectionF{
+      display: none;
+    }
 }
 
 h2 {
@@ -125,14 +128,14 @@ section {
     }
 
 }
-@media only screen and (max-width: 559px){
+/*@media only screen and (max-width: 559px){
     .navbar__menu li {
         position: relative;
         text-align: left;
     }
-    
 
-}
+
+}*/
 
 section:nth-of-type(even) .landing__container {
     margin-right: 0;
@@ -169,6 +172,7 @@ section:nth-of-type(even) .landing__container::before {
     opacity: 0;
     transition: ease 0.5s all;
 }
+
 
 section:nth-of-type(3n) .landing__container::after {
     content: '';
