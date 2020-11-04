@@ -69,14 +69,21 @@ const options = {
 const observer = new IntersectionObserver(function
   (enrtie, observer){
   enrtie.forEach(function(entre) {
+    // const navsection = document.querySelector(`.menu_section[data-sections='${entre.target.id}']`);
+
+
+    sectionN = entre.target.id.replace(/\D/g, "");
+      let x = document.querySelector(`#navbar__list > li:nth-child(${sectionN}) > a`);
     //to see if the section isIntersecting so they dont show up all it the begining of viewing the page
     if(entre.isIntersecting){
       //Add the your-active-class class to the Observed section :
       entre.target.classList.add('your-active-class');
+      x.classList.add('ActiveNav');
     }else{
       //remove the active class when isIntersecting become false :
 
         entre.target.classList.remove('your-active-class');
+          x.classList.remove('ActiveNav');
     }
 
   });

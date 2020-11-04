@@ -70,10 +70,7 @@ section {
     text-align: right;
 }
 
-.navbar__menu li {
-    display: inline-block;
-    position: relative;
-}
+
 
 .navbar__menu .menu__link {
     display: block;
@@ -122,6 +119,19 @@ section {
         max-width: 50em;
         padding: 4em;
     }
+    .navbar__menu li {
+        display: inline-block;
+        position: relative;
+    }
+
+}
+@media only screen and (max-width: 559px){
+    .navbar__menu li {
+        position: relative;
+        text-align: left;
+    }
+    
+
 }
 
 section:nth-of-type(even) .landing__container {
@@ -224,6 +234,6 @@ section.your-active-class .landing__container::after {
 }
 
 
-.Observed{
-  border: 4px red solid;
+.ActiveNav{
+  background-color: red;
 }
